@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casino</title>
+  </head>
+  <body>
+    <p>Ваш баланс:</p>
+    <p class="js-player-balance"></p>
+    <p>_________________________</p>
+
+    <p>Карты дилера:</p>
+    <p class="js-dealer-card">[]</p>
+    <p>Очки дилера:</p>
+    <p class="js-dealer-points">0</p>
+    <p>_________________________</p>
+
+    <p>Ваши карты:</p>
+    <p class="js-youCard">[]</p>
+    <p>Ваши очки:</p>
+    <p class="js-you-points">0</p>
+    <p>_________________________</p>
+
+    <p>Размер ставки:</p>
+    <p class="js-bid-size">0</p>
+
+    <button class="js-bid-5">5</button>
+    <button class="js-bid-10">10</button>
+    <button class="js-bid-25">25</button>
+    <button class="js-bid-50">50</button>
+
+    <button class="js-start-game">=> Играть <=</button>
+    <br /><br />
+
+    <button class="js-next-card">Карту</button>
+    <button class="js-enough">Хватит</button>
+
+    <script src="deck.js"></script>
+    <script src="blackJack.js"></script>
+    <script src="index.js"></script>
+    <script src="deckForPlaying.js"></script>
+    <script src="checkPoints.js"></script>
+    <script src="cardStrength.js"></script>
+    <script src="returnToDefault.js"></script>
+  </body>
+</html>
