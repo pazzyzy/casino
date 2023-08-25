@@ -1,7 +1,7 @@
 let playerBalance = 1000 // Счет игрока
 let blackJacksPoint = 26 // Игра до этого кол-ва очков
 let dealerPlayToThisPoint = blackJacksPoint - 3 // Дилер набирает до этого кол-ва очков
-const numberOfDecks = 6 //Задаем количество колод
+const numberOfDecks = 6 //Задаем количество колод.
 
 let numerOfMove = 0
 let playerPoints = 0
