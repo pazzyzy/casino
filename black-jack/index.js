@@ -15,7 +15,6 @@ const playerBalanceNode = document.querySelector(".js-player-balance")
 
 playerBalanceNode.innerHTML = playerBalance
 
-//Раздаем 2 карты игроку и 1 диллеру
 btnStartGameNode.addEventListener("click", function () {
   if (numerOfMove === 0 && bidSize != 0) {
     console.log("start game")
@@ -29,7 +28,6 @@ btnStartGameNode.addEventListener("click", function () {
   }
 })
 
-//Еще одна карта игроку
 btnNextCardNode.addEventListener("click", function () {
   if (numerOfMove != 0 && !playerFinishPlay) {
     getCardToPlayer(shuffleDeck)
@@ -37,21 +35,17 @@ btnNextCardNode.addEventListener("click", function () {
   }
 })
 
-//Игрок закончил набирать карты, переход к диллеру
 btnEnoughNode.addEventListener("click", function () {
   if (numerOfMove != 0) {
     playerFinishPlay = true
-    //При игре до 33 увеличиваем значение мин очков дилера до 27
     while (dealerPoints < dealerPlayToThisPoint) {
       getCartToDealer(shuffleDeck)
       console.log(dealerPoints)
     }
-    setTimeout(() => checkPoints(playerPoints, dealerPoints), 0) /////
-    // checkPoints(playerPoints, dealerPoints)   /////
+    setTimeout(() => checkPoints(playerPoints, dealerPoints), 0)
   }
 })
 
-//Кнопка для ставки 5
 btnBid5Node.addEventListener("click", function () {
   let wantToBid = 5
   if (numerOfMove === 0 && playerBalance >= wantToBid) {
@@ -66,7 +60,6 @@ btnBid5Node.addEventListener("click", function () {
   }
 })
 
-//Кнопка для ставки 10
 btnBid10Node.addEventListener("click", function () {
   let wantToBid = 10
   if (numerOfMove === 0 && playerBalance >= wantToBid) {
@@ -81,7 +74,6 @@ btnBid10Node.addEventListener("click", function () {
   }
 })
 
-//Кнопка для ставки 25
 btnBid25Node.addEventListener("click", function () {
   let wantToBid = 25
   if (numerOfMove === 0 && playerBalance >= wantToBid) {
@@ -96,7 +88,6 @@ btnBid25Node.addEventListener("click", function () {
   }
 })
 
-//Кнопка для ставки 50
 btnBid50Node.addEventListener("click", function () {
   let wantToBid = 50
   if (numerOfMove === 0 && playerBalance >= wantToBid) {

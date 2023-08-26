@@ -1,7 +1,6 @@
 const alternativeAce = 1
 let differenceBetweenAces
 
-//Определние силы карты для подсчета очков
 function cardStrength(card) {
   let points = card.value
   switch (card.value) {

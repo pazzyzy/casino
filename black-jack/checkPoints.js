@@ -1,15 +1,12 @@
-//Подсчет очков
 function checkPoints(pointsPlayer, pointsDealer) {
-  //для игры до 33
   if (pointsPlayer === blackJacksPoint) {
     winLoseMessage("Поздравляем, у Вас БЛЭКДЖЕК!")
     console.log("you win")
     playerBalance = playerBalance + 1.5 * bidSize
     return
   }
-  //Перебор у игрока
+
   if (pointsPlayer > blackJacksPoint) {
-    //Проверка были ли тузы
     if (playerAces > 0) {
       playerAces -= 1
       pointsPlayer -= differenceBetweenAces
@@ -23,9 +20,7 @@ function checkPoints(pointsPlayer, pointsDealer) {
     return
   }
 
-  //Перебор у диллера
   if (pointsDealer > blackJacksPoint) {
-    //Проверка были ли АА у диллера
     if (dealerAces > 0) {
       dealerAces -= 1
       dealerPoints -= differenceBetweenAces
@@ -47,7 +42,6 @@ function checkPoints(pointsPlayer, pointsDealer) {
     return
   }
 
-  //Сравниваем очки
   if (pointsDealer >= dealerPlayToThisPoint) {
     if (pointsDealer > pointsPlayer) {
       winLoseMessage("Вы проиграли.")

@@ -1,4 +1,3 @@
-//Возвращаем все необходимые параметры в начальные сосояния для новой раздачи
 function returnToDefault() {
   numerOfMove = 0
   playerPoints = 0
