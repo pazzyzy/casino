@@ -12,7 +12,6 @@ function checkPoints(pointsPlayer, pointsDealer) {
       pointsPlayer -= differenceBetweenAces
       playerPoints -= differenceBetweenAces
       playerPointsNode.innerHTML = pointsPlayer
-      checkPoints(pointsPlayer, pointsDealer)
       return
     }
     winLoseMessage("Вы проиграли.")
@@ -22,11 +21,7 @@ function checkPoints(pointsPlayer, pointsDealer) {
 
   if (pointsDealer > blackJacksPoint) {
     if (dealerAces > 0) {
-      dealerAces -= 1
-      dealerPoints -= differenceBetweenAces
-      dealerPointsNode.innerHTML = dealerPoints
-      getCartToDealer(shuffleDeck)
-      setTimeout(() => checkPoints(playerPoints, dealerPoints), 100)
+      dealerHasAces()
       return
     }
     dealerPointsNode.innerHTML = dealerPoints
@@ -37,8 +32,7 @@ function checkPoints(pointsPlayer, pointsDealer) {
   }
 
   if (pointsDealer < dealerPlayToThisPoint && playerFinishPlay) {
-    getCartToDealer(shuffleDeck)
-    checkPoints(pointsPlayer, dealerPoints)
+    dealerNeedsACard()
     return
   }
 
@@ -70,4 +64,19 @@ function winLoseMessage(message) {
   setTimeout(() => returnToDefault(), 0)
   console.log("playerPoints=", playerPoints)
   console.log("dealerPoints=", dealerPoints)
+}
+
+function dealerHasAces() {
+  dealerAces -= 1
+  dealerPoints -= differenceBetweenAces
+  dealerPointsNode.innerHTML = dealerPoints
+  if (dealerPoints < dealerPlayToThisPoint) {
+    getCartToDealer(shuffleDeck)
+  }
+  setTimeout(() => checkPoints(playerPoints, dealerPoints), 100)
+}
+
+function dealerNeedsACard() {
+  getCartToDealer(shuffleDeck)
+  checkPoints(playerPoints, dealerPoints)
 }
