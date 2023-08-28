@@ -62,9 +62,8 @@ function playerHasBJ() {
 
 function playerHasAces() {
   playerAces -= 1
-  pointsPlayer -= differenceBetweenAces
   playerPoints -= differenceBetweenAces
-  playerPointsNode.innerHTML = pointsPlayer
+  playerPointsNode.innerHTML = playerPoints
 }
 
 function dealerHasAces() {
