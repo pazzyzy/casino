@@ -78,5 +78,5 @@ function dealerHasAces() {
 
 function dealerNeedsACard() {
   getCartToDealer(shuffleDeck)
-  checkPoints(playerPoints, dealerPoints)
+  setTimeout(() => checkPoints(playerPoints, dealerPoints), 0)
 }
