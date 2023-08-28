@@ -1,21 +1,15 @@
 function checkPoints(pointsPlayer, pointsDealer) {
   if (pointsPlayer === blackJacksPoint) {
-    winLoseMessage("Поздравляем, у Вас БЛЭКДЖЕК!")
-    console.log("you win")
-    playerBalance = playerBalance + 1.5 * bidSize
+    playerHasBJ()
     return
   }
 
   if (pointsPlayer > blackJacksPoint) {
     if (playerAces > 0) {
-      playerAces -= 1
-      pointsPlayer -= differenceBetweenAces
-      playerPoints -= differenceBetweenAces
-      playerPointsNode.innerHTML = pointsPlayer
+      playerHasAces()
       return
     }
     winLoseMessage("Вы проиграли.")
-    console.log("you lose")
     return
   }
 
@@ -25,7 +19,6 @@ function checkPoints(pointsPlayer, pointsDealer) {
       return
     }
     dealerPointsNode.innerHTML = dealerPoints
-    console.log("you win")
     winLoseMessage("Вы победили!")
     playerBalance = playerBalance + 2 * bidSize
     return
@@ -39,23 +32,19 @@ function checkPoints(pointsPlayer, pointsDealer) {
   if (pointsDealer >= dealerPlayToThisPoint) {
     if (pointsDealer > pointsPlayer) {
       winLoseMessage("Вы проиграли.")
-      console.log("you lose")
       return
     }
     if (pointsDealer === pointsPlayer) {
       winLoseMessage("Ничья.")
-      console.log("Push")
       playerBalance = playerBalance + bidSize
       return
     }
     if (pointsDealer === blackJacksPoint) {
       winLoseMessage("Вы проиграли.")
-      console.log("you lose")
       return
     }
     winLoseMessage("Вы победили!")
     playerBalance = playerBalance + 2 * bidSize
-    console.log("you win")
   }
 }
 
@@ -64,6 +53,18 @@ function winLoseMessage(message) {
   setTimeout(() => returnToDefault(), 0)
   console.log("playerPoints=", playerPoints)
   console.log("dealerPoints=", dealerPoints)
+}
+
+function playerHasBJ() {
+  winLoseMessage("Поздравляем, у Вас БЛЭКДЖЕК!")
+  playerBalance = playerBalance + 1.5 * bidSize
+}
+
+function playerHasAces() {
+  playerAces -= 1
+  pointsPlayer -= differenceBetweenAces
+  playerPoints -= differenceBetweenAces
+  playerPointsNode.innerHTML = pointsPlayer
 }
 
 function dealerHasAces() {
